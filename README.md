@@ -6,3 +6,5 @@ A code similarity detection tool designed for educational datasets. Identifies p
 - Python 3.10+
 - Poetry
 
+## Sprint #1
+- [Demo](https://github.com/user-attachments/assets/f844f407-8fc4-4fb3-bc8a-586411ea4bc7)
