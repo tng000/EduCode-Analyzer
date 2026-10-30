@@ -10,6 +10,7 @@ packages = [{include = "educode", from = "src"}]
 python = "^3.10"
 streamlit = "^1.30.0"
 pydantic = "^2.6.0"
+pandas = "^2.0.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.3.0"
