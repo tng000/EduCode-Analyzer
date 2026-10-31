@@ -8,3 +8,7 @@ A code similarity detection tool designed for educational datasets. Identifies p
 
 ## Sprint #1
 - [Demo](https://github.com/user-attachments/assets/f844f407-8fc4-4fb3-bc8a-586411ea4bc7)
+
+## Sprint #2
+- [Demo](https://github.com/user-attachments/assets/08cd0291-5cac-4f3e-a036-13da3d016f1a)
+
