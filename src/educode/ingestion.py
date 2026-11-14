@@ -82,8 +82,7 @@ def parse_submission(
 def validate_lines(
     line_generator: Generator[Tuple[int, str], None, None],
 ) -> Generator[
-    Tuple[int, Submission, None]
-    | Tuple[int, None, Dict[str, Any]],
+    Tuple[int, Submission, None] | Tuple[int, None, Dict[str, Any]],
     None,
     None,
 ]:
@@ -94,8 +93,7 @@ def validate_lines(
 
 def deduplicate(
     validated_generator: Generator[
-        Tuple[int, Submission, None]
-        | Tuple[int, None, Dict[str, Any]],
+        Tuple[int, Submission, None] | Tuple[int, None, Dict[str, Any]],
         None,
         None,
     ],

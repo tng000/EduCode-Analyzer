@@ -73,27 +73,39 @@ class TestParseSubmission:
 class TestDeduplicate:
     def test_removes_duplicates(self):
         def gen():
-            yield (1, Submission(
-                submission_id="1",
-                student_id="s1",
-                timestamp="2024-01-01T00:00:00Z",
-                code="x = 1",
-                ai_declaration=AIDeclaration(used=False),
-            ), None)
-            yield (2, Submission(
-                submission_id="1",
-                student_id="s1",
-                timestamp="2024-01-01T00:00:01Z",
-                code="x = 1",
-                ai_declaration=AIDeclaration(used=False),
-            ), None)
-            yield (3, Submission(
-                submission_id="3",
-                student_id="s2",
-                timestamp="2024-01-01T00:00:02Z",
-                code="y = 2",
-                ai_declaration=AIDeclaration(used=False),
-            ), None)
+            yield (
+                1,
+                Submission(
+                    submission_id="1",
+                    student_id="s1",
+                    timestamp="2024-01-01T00:00:00Z",
+                    code="x = 1",
+                    ai_declaration=AIDeclaration(used=False),
+                ),
+                None,
+            )
+            yield (
+                2,
+                Submission(
+                    submission_id="1",
+                    student_id="s1",
+                    timestamp="2024-01-01T00:00:01Z",
+                    code="x = 1",
+                    ai_declaration=AIDeclaration(used=False),
+                ),
+                None,
+            )
+            yield (
+                3,
+                Submission(
+                    submission_id="3",
+                    student_id="s2",
+                    timestamp="2024-01-01T00:00:02Z",
+                    code="y = 2",
+                    ai_declaration=AIDeclaration(used=False),
+                ),
+                None,
+            )
 
         unique = list(deduplicate(gen()))
         assert len(unique) == 2
@@ -134,9 +146,7 @@ class TestIngestionService:
                 "ai_declaration": {"used": False},
             },
         ]
-        with tempfile.NamedTemporaryFile(
-            mode="w", suffix=".jsonl", delete=False
-        ) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".jsonl", delete=False) as f:
             for item in data:
                 f.write(json.dumps(item) + "\n")
             tmp_path = f.name

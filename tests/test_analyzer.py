@@ -1,10 +1,10 @@
 from educode.analyzer import (
+    JaccardAnalyzer,
     LengthAnalyzer,
     TemplateAnalyzer,
-    JaccardAnalyzer,
     compute_pairwise_jaccard,
 )
-from educode.models import Submission, Assignment, AIDeclaration
+from educode.models import AIDeclaration, Assignment, Submission
 
 
 class TestLengthAnalyzer:

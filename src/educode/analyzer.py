@@ -42,9 +42,7 @@ class TemplateAnalyzer:
         evidence: List[Dict[str, object]] = []
         for template in context.permitted_templates:
             if template in submission.code:
-                evidence.append(
-                    {"type": "template_match", "template": template}
-                )
+                evidence.append({"type": "template_match", "template": template})
         return AnalysisReport(
             analyzer_id=self.analyzer_id,
             analyzer_version=self.analyzer_version,
@@ -68,9 +66,7 @@ class JaccardAnalyzer:
             return set()
         return {" ".join(tokens[i : i + n]) for i in range(len(tokens) - n + 1)}
 
-    def analyze_pair(
-        self, sub1: Submission, sub2: Submission
-    ) -> Optional[float]:
+    def analyze_pair(self, sub1: Submission, sub2: Submission) -> Optional[float]:
         """Compute Jaccard similarity between two submissions.
 
         Returns None if the union of 3-grams is empty.
@@ -154,10 +150,7 @@ def compute_pairwise_jaccard(
                 if pair_key not in pair_max_sim or sim > pair_max_sim[pair_key]:
                     pair_max_sim[pair_key] = sim
 
-    pairs = [
-        (sid1, sid2, round(sim, 4))
-        for (sid1, sid2), sim in pair_max_sim.items()
-    ]
+    pairs = [(sid1, sid2, round(sim, 4)) for (sid1, sid2), sim in pair_max_sim.items()]
 
     pairs.sort(key=lambda x: x[2], reverse=True)
     return pairs[:top_k]
